@@ -1,0 +1,47 @@
+li{
+    list-style: none;
+}
+.login{
+    width: 336px;
+    height: auto;
+    margin: 100px auto;
+    border: 1px solid #eee;
+    background-image:url('../img/Login.gif');
+    background-repeat: no-repeat;
+}
+.login_list{
+    width: 100%;
+    height: auto;
+}
+.current {
+    color: blue;
+}
+.login_list ul{
+    margin: 0px;
+    text-align: right;
+}
+.login_list li{
+    font: 14px Microsoft YaHei;
+    display: inline-block;
+    padding:5px 20px;
+}
+.login_list li:hover{
+    cursor: pointer;
+}
+.login_form{
+    width: 100%;
+    height: auto;
+    border-top: none;
+}
+.login_form .item{
+    height: 100%;
+    font-size: 13px;
+    text-indent: 13px;
+    padding: 0 10px;
+}
+.login_form .item .input{
+    padding: 5px;
+}
+.submitBtn{
+
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <title>注册界面</title>
+</head>
+<body>
+    <div class="login">
+        <div class="login_list">
+            <ul>
+                <li class="current">教师注册</li>
+                <li>学生注册</li>
+            </ul>
+        </div>
+        <div class="login_form">
+            <div id="teacher" style="display: block" class="item">
+                <div style="padding: 5px; text-align: center">教师注册</div>
+                <form action="" method="post">
+                    <div class="input">
+                        <label>学校：</label>
+                        <select>
+                            <option>苏州大学</option>
+                            <option>吉林大学</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for="username">工号：</label>
+                        <input type="text" class="form-control" id="account" placeholder="工号" name="account">
+                    </div>
+                    <div class="input">
+                        <label for="username">姓名：</label>
+                        <input type="text" class="form-control" id="username" placeholder="姓名" name="username">
+                    </div>
+                    <div class="input">
+                        <label for="password">密码：</label>
+                        <input type="password" class="form-control" id="password" placeholder="密码" name="password">
+                    </div>
+                    <div style="text-align: center; padding: 10px">
+                        <button type="submit" name="submitBtn" id="submitBtn">注册</button>
+                    </div>
+                </form>
+            </div>
+            <div id="student" style="display: none" class="item">
+                <div style="padding: 5px; text-align: center">学生注册</div>
+                <form action="" method="post">
+                    <div class="input">
+                        <label>选择学校：</label>
+                        <select>
+                            <option>苏州大学</option>
+                            <option>吉林大学</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for="username">输入学号：</label>
+                        <input type="text" class="form-control" id="account" placeholder="学号" name="account">
+                    </div>
+                    <div class="input">
+                        <label for="username">输入姓名：</label>
+                        <input type="text" class="form-control" id="username" placeholder="姓名" name="username">
+                    </div>
+                    <div class="input">
+                        <label for="password">输入密码：</label>
+                        <input type="password" class="form-control" id="password" placeholder="密码" name="password">
+                    </div>
+                    <div class="input">
+                        <label for="username">确认密码：</label>
+                        <input type="text" class="form-control" id="cfpassword" placeholder="确认密码" name="cfpassword">
+                    </div>
+                    <div class="input">
+                        <label for="username">手机号码：</label>
+                        <input type="text" class="form-control" id="account" placeholder="学号" name="account">
+                    </div>
+                    <div style="text-align: center; padding: 10px">
+                        <button type="submit" name="submitBtn" id="submitBtn">注册</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/lib/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+       $(function(){
+         $(".login_list li").click(function(){
+             $(".login_list li").removeClass("current");
+             $(this).addClass("current");
+
+            let index = $(this).index();
+            if (index == 0){
+                $("#teacher").show()
+                $("#student").hide()
+            }else if(index == 1){
+                $("#teacher").hide()
+                $("#student").show()
+            }
+            });
+     });
+    </script>
+</body>
+</html>

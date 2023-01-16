@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>折叠式菜单特效</title>
+
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			.menu_list {
+				list-style-type: none;
+				margin: 100px;
+				width: 223px;
+			}
+
+            li{
+                list-style: none;
+            }
+
+			.menu_head {
+				width: 223px;
+				height: 46px;
+				line-height: 46px;
+				padding-left: 38px;
+				font-size: 16px;
+				color: #475050;
+				cursor: pointer;
+				border: 1px solid #e0e0e0;
+				font-weight: bold;
+				background-color: aqua;
+				background-position: right center;
+				background-repeat: no-repeat;
+			}
+
+			.current {
+				background-color: red;
+			}
+
+			.menu_body {
+				border-left: 1px solid #e0e0e0;
+				border-right: 1px solid #e0e0e0;
+				width: 223px;
+			}
+
+			.menu_body a {
+				width: 223px;
+				padding-left: 38px;
+				display: block; 	/*不能去掉，只有是block，高度才有效*/
+				line-height: 38px;
+				color: #666;
+				text-decoration: none;
+				overflow: hidden; 	/*与高度为0 结合，溢出的部分隐藏*/
+				height: 0px; 		/*高度0*/
+				transition: all .3s;
+			}
+			.bt{
+				border-bottom: 1px solid #e0e0e0;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="menu_list">
+			<li>
+				<div class="menu_head">HTML语言</div>
+				<ul class="menu_body">
+					<li>HTML基础</li>
+					<li>图像和超链接</li>
+					<li>列表和表格</li>
+					<li>音频和视频</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu_head">CSS样式表</div>
+				<ul class="menu_body">
+					<li href="#">CSS基础</li>
+					<li href="#">字体文本属性</li>
+					<li href="#">超链接样式</li>
+					<li href="#">列表样式</li>
+					<li href="#">表格样式</li>
+					<li href="#">表单样式</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu_head">网页布局案例</div>
+				<ul class="menu_body">
+					<li href="#">登陆页面的制作</li>
+					<li href="#">入驻页面的制作</li>
+					<li href="#">招生信息网</li>
+					<li href="#">美妆网页</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu_head">JavaScript</div>
+				<ul class="menu_body">
+					<li href="#">JS的基础语法 </li>
+					<li href="#">BOM对象</li>
+					<li href="#" class="bt">DOM对象</li>
+				</ul>
+			</li>
+		</ul>
+
+		<script type="text/javascript">
+			var list = document.querySelector('.menu_list');
+			var menus = list.querySelectorAll('.menu_head');
+			for (let i = 0; i < menus.length; i++) {
+				menus[i].addEventListener('click', function() {
+					alinks = this.nextElementSibling.children;
+					if (this.className == 'menu_head') {
+						this.className = 'menu_head current';
+						for (let k = 0; k < alinks.length; k++) {
+							alinks[k].style.display = 'block';
+						}
+					} else {
+						this.className = 'menu_head';
+						for (let k = 0; k < alinks.length; k++) {
+							alinks[k].style.display = 'none';
+						}
+					}
+				})
+			}
+
+		</script>
+	</body>
+</html>

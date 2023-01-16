@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+    cursor: pointer;
+}
+.header{
+    background-color: black;
+    height: auto;
+}
+.list{
+    width: 150px;
+    padding-left: 0;
+    float: left;
+    list-style: none;
+}
+.li_name{
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #475050;
+    cursor: pointer;
+    border: 1px solid #e0e0e0;
+    font-weight: bold;
+}
