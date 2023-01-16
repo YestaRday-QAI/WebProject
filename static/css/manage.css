@@ -8,22 +8,41 @@ li{
     cursor: pointer;
 }
 .header{
-    background-color: black;
     height: auto;
 }
 .list{
-    width: 150px;
-    padding-left: 0;
+    width: 200px;
+    padding:0;
+    margin: 0;
     float: left;
     list-style: none;
 }
 .li_name{
-    width: 150px;
+    width: 200px;
     height: 50px;
+    padding-left: 38px;
     line-height: 50px;
     font-size: 16px;
     color: #475050;
     cursor: pointer;
-    border: 1px solid #e0e0e0;
     font-weight: bold;
+}
+.li_body {
+    padding-left: 76px;
+    width: 200px;
+}
+.li_body li {
+    width: 200px;
+    display: block;
+    line-height: 38px;
+    color: #666;
+    text-decoration: none;
+    overflow: hidden;
+    height: 0px;
+    transition: all .3s;
+}
+.manage{
+    width: 500px;
+    float: left;
+    padding: 50px;
 }
