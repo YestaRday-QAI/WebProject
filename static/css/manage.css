@@ -38,11 +38,11 @@ li{
     color: #666;
     text-decoration: none;
     overflow: hidden;
-    height: 0px;
+    height: 0;
     transition: all .3s;
 }
-.manage{
-    width: 500px;
-    float: left;
-    padding: 50px;
+.content{
+    flex-grow: 1;
+    height: 1000px;
+    padding: 20px 20px;
 }

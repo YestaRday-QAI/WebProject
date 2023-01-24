@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="addExam" type="button" value="添加考试">
+    <table border="1">
+        <tr>
+            <th>考试编号</th>
+            <th>考试名称</th>
+            <th>班级编号</th>
+            <th>考试时间</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>100001</td>
+            <td>考试测试</td>
+            <td>100001</td>
+            <td>2023/1/30</td>
+            <td>
+                <button>删除</button>
+                <button>修改</button>
+                <button>查看详情</button>
+            </td>
+        </tr>
+    </table>
+    <span id="test">测试标签</span>
+    <script>
+        document.querySelector('#addExam').addEventListener('click', function () {
+            parent.document.querySelector('.content').src="addExam.html";
+        })
+    </script>
+</body>
+</html>

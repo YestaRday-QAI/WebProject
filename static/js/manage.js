@@ -16,3 +16,17 @@ for (let i = 0; i < menus.length; i++) {
         }
     })
 }
+
+document.querySelector('#tklb').addEventListener('click', function () {
+    document.querySelector('.content').src="addProblem.html";
+})
+
+document.querySelector('#tjtm').addEventListener('click', function () {
+    document.querySelector('.content').src="addProblemBank.html";
+})
+
+document.querySelector('#kslb').addEventListener('click', function () {
+    document.querySelector('.content').src="examList.html";
+})
+
+
