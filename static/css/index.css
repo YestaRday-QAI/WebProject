@@ -1,0 +1,13 @@
+.div1{
+    width: 780px;
+    margin: auto;
+    text-align: right;
+    background-repeat: no-repeat;
+    background-image: url("../img/Index04.gif");
+}
+.main {
+    text-align: center;
+}
+img {
+    vertical-align: middle;
+}

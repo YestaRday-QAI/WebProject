@@ -43,6 +43,7 @@ li{
 }
 .content{
     flex-grow: 1;
+    width: 1000px;
     height: 1000px;
     padding: 20px 20px;
 }

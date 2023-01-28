@@ -19,5 +19,11 @@ from manageApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Exam/add/', views.add_exam),
+    path('', views.index),
+    path('teacher/', views.teacher),
+    path('student/', views.student),
+    path('register/', views.register),
+    path('login/', views.login),
+    path('teacher/examList/', views.TeacherExamList),
+    path('teacher/addExam/', views.TeacherAddExam),
 ]
