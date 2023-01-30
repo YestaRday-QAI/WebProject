@@ -16,7 +16,8 @@
         <div class="login_form">
             <div id="teacher" style="display: block" class="item">
                 <div style="padding: 5px; text-align: center">教师登录</div>
-                <form action="" method="post">
+                <form action="" method="post" novalidate>
+                    {% csrf_token %}
                     <div class="input">
                         <label>学校：</label>
                         <select>
@@ -25,12 +26,14 @@
                         </select>
                     </div>
                     <div class="input">
-                        <label for="username">姓名：</label>
-                        <input type="text" class="form-control" id="username" placeholder="姓名" name="username">
+                        <label for="username">工号：</label>
+                        <input type="text" class="form-control" placeholder="工号" name="stuffnum">
+                        <div style="color: red">{{ form.stuffnum.errors.0 }}</div>
                     </div>
                     <div class="input">
                         <label for="password">密码：</label>
-                        <input type="password" class="form-control" id="password" placeholder="密码" name="password">
+                        <input type="password" class="form-control" placeholder="密码" name="password">
+                        <div style="color: red">{{ form.password.errors.0 }}</div>
                     </div>
                         <div style="text-align: center">如忘记密码，请联系系统管理员。</div>
                     <div style="text-align: center; padding: 10px">
@@ -41,6 +44,7 @@
             <div id="student" style="display: none" class="item">
                 <div style="padding: 5px; text-align: center">学生登录</div>
                 <form action="" method="post">
+                    {% csrf_token %}
                     <div class="input">
                         <label>学校：</label>
                         <select>

@@ -7,24 +7,29 @@
 <body>
     <input id="addExam" type="button" value="添加考试">
     <table border="1">
+        <thead>
         <tr>
             <th>考试编号</th>
             <th>考试名称</th>
-            <th>班级编号</th>
-            <th>考试时间</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
             <th>操作</th>
         </tr>
+        </thead>
+        <tbody>
+        {% for obj in queryset %}
         <tr>
-            <td>100001</td>
-            <td>考试测试</td>
-            <td>100001</td>
-            <td>2023/1/30</td>
+            <td>E{{ obj.id }}</td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.sttime }}</td>
+            <td>{{ obj.endtime }}</td>
             <td>
-                <button>删除</button>
-                <button>修改</button>
-                <button>查看详情</button>
+                <a href="/teacher/{{ obj.id }}/deleteExam/"><button>删除</button></a>
+                <a href="/teacher/{{ obj.id }}/editExam/"><button>修改</button></a>
             </td>
         </tr>
+        {% endfor %}
+        </tbody>
     </table>
     <span id="test">测试标签</span>
     <script>

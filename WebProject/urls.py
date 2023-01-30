@@ -20,10 +20,15 @@ from manageApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('teacher/', views.teacher),
-    path('student/', views.student),
     path('register/', views.register),
     path('login/', views.login),
+
+    path('teacher/', views.teacher),
     path('teacher/examList/', views.TeacherExamList),
     path('teacher/addExam/', views.TeacherAddExam),
+    path('teacher/<int:nid>/deleteExam/', views.TeacherDeleteExam),
+    path('teacher/<int:nid>/editExam/', views.TeacherEditExam),
+
+    path('student/', views.student),
+    path('student/examList/', views.StudentExamList),
 ]

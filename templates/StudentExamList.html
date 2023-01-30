@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>考试编号</th>
+            <th>考试名称</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in queryset %}
+        <tr>
+            <td>E{{ obj.id }}</td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.sttime }}</td>
+            <td>{{ obj.endtime }}</td>
+            <td>
+                <a href="/student/{{ obj.id }}/deleteExam/"><button>开始答题</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

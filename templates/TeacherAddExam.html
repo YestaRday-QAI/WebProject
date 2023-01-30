@@ -6,6 +6,7 @@
 </head>
 <body>
     <form action="" method="post">
+        {% csrf_token %}
         <div hidden>{% csrf_token %}</div>
         <span>添加考试</span>
         <div>
@@ -30,5 +31,6 @@
         </div>
         <input id="submit" type="submit" value="保存">
     </form>
+        <a href="/teacher/examList/"><button>返回</button></a>
 </body>
 </html>
