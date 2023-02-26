@@ -6,6 +6,7 @@
 </head>
 <body>
     <table border="1">
+    <div>{{ date_now | date:'Y-m-d H:i:s' }}</div>
         <thead>
         <tr>
             <th>考试编号</th>
@@ -20,11 +21,18 @@
         <tr>
             <td>E{{ obj.id }}</td>
             <td>{{ obj.name }}</td>
-            <td>{{ obj.sttime }}</td>
-            <td>{{ obj.endtime }}</td>
-            <td>
-                <a href="/student/{{ obj.id }}/deleteExam/"><button>开始答题</button></a>
-            </td>
+            <td>{{ obj.sttime | date:'Y-m-d H:i:s' }}</td>
+            <td>{{ obj.endtime | date:'Y-m-d H:i:s' }}</td>
+            {% if obj.sttime|date:'YmdHis' <= date_now|date:'YmdHis' and date_now|date:'YmdHis' <= obj.endtime|date:'YmdHis' %}
+                <td>
+                    <a href="/student/{{ obj.id }}/exam/"><button>开始答题</button></a>
+                </td>
+            {% elif obj.sttime|date:'YmdHis' > date_now|date:'YmdHis' %}
+                <td>未开始</td>
+            {% elif date_now|date:'YmdHis' > obj.endtime|date:'YmdHis' %}
+                <td>已结束</td>
+            {% endif %}
+
         </tr>
         {% endfor %}
         </tbody>

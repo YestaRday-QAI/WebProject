@@ -22,13 +22,31 @@ urlpatterns = [
     path('', views.index),
     path('register/', views.register),
     path('login/', views.login),
+    path('logout/', views.logout),
 
+    # 分页组件
+    path('divpage/', views.get_article),
+    # 教师页面
     path('teacher/', views.teacher),
+    # 考试
     path('teacher/examList/', views.TeacherExamList),
     path('teacher/addExam/', views.TeacherAddExam),
     path('teacher/<int:nid>/deleteExam/', views.TeacherDeleteExam),
     path('teacher/<int:nid>/editExam/', views.TeacherEditExam),
+    # 题库
+    path('teacher/ProblemList/', views.TeacherProblemList),
+    path('teacher/AddProblem/', views.TeacherAddProblem),
+    path('teacher/<int:nid>/DeleteProblem/', views.TeacherDeleteProblem),
+    path('teacher/<int:nid>/EditProblem/', views.TeacherEditProblem),
+    # 班级
+    path('teacher/classList/', views.TeacherClassList),
+    path('teacher/addClass/', views.TeacherAddClass),
+    path('teacher/<int:nid>/deleteClass/', views.TeacherDeleteClass),
+    path('teacher/studentList/', views.TeacherStudentList),
+    path('teacher/<int:nid>/deleteStudent/', views.TeacherDeleteStudent),
 
+    # 学生页面
     path('student/', views.student),
     path('student/examList/', views.StudentExamList),
+    path('student/<int:nid>/exam/', views.StudentExam),
 ]

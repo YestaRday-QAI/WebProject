@@ -18,6 +18,7 @@
                 <div style="padding: 5px; text-align: center">教师登录</div>
                 <form action="" method="post" novalidate>
                     {% csrf_token %}
+                    <input style="display: none" value="教师登录" name="mode">
                     <div class="input">
                         <label>学校：</label>
                         <select>
@@ -45,6 +46,7 @@
                 <div style="padding: 5px; text-align: center">学生登录</div>
                 <form action="" method="post">
                     {% csrf_token %}
+                    <input style="display: none" value="学生登录" name="mode">
                     <div class="input">
                         <label>学校：</label>
                         <select>
@@ -53,12 +55,14 @@
                         </select>
                     </div>
                     <div class="input">
-                        <label for="username">学号：</label>
-                        <input type="text" class="form-control" id="account" placeholder="学号" name="account">
+                        <label for="stunum">学号：</label>
+                        <input type="text" class="form-control" id="stunum" placeholder="学号" name="stunum">
+                        <div style="color: red">{{ form.stunum.errors.0 }}</div>
                     </div>
                     <div class="input">
                         <label for="password">密码：</label>
                         <input type="password" class="form-control" id="password" placeholder="密码" name="password">
+                        <div style="color: red">{{ form.password.errors.0 }}</div>
                     </div>
                     <div style="text-align: center">如忘记密码，请联系系统管理员。</div>
                     <div style="text-align: center; padding: 10px">

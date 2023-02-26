@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/manage.css">
-    <link rel="stylesheet" href="../static/lib/bootstrap-5.2.2-dist/css/bootstrap.css">
 </head>
 <body>
     <div class="header">
         <img src="../static/img/header.jpg">
+        <span>教师系统</span>
     </div>
     <img src="../static/img/StudentRight.gif">
     <ul class="list">
@@ -16,20 +16,20 @@
             <ul class="li_body">
                 <li id="xgxx">修改信息</li>
                 <li id="ckxx">查看信息</li>
+                <li><a href="/logout/" onclick="return confirm('是否退出？')">退出登录</a></li>
             </ul>
         </li>
         <li>
             <div class="li_name">题库管理</div>
             <ul class="li_body">
-                <li id="tklb">题库列表</li>
-                <li id="tjtm">添加题目</li>
-                <li id="tmgl">题目管理</li>
+                <li id="tmlb">题目列表</li>
             </ul>
         </li>
         <li>
             <div class="li_name">班级管理</div>
             <ul class="li_body">
-                <li id="tjbj">添加班级</li>
+                <li id="bjlb">班级列表</li>
+                <li id="xslb">学生列表</li>
             </ul>
         </li>
         <li>
@@ -39,7 +39,7 @@
             </ul>
         </li>
     </ul>
-    <iframe src="/teacher/examList/" class="content"></iframe>
-    <script src="../static/js/manage.js"></script>
+    <iframe src="/teacher/examList/" class="content" frameborder="0" scrolling="no"></iframe>
+    <script src="../static/js/teacher.js"></script>
 </body>
 </html>

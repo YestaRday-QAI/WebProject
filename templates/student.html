@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/manage.css">
-    <link rel="stylesheet" href="../static/lib/bootstrap-5.2.2-dist/css/bootstrap.css">
 </head>
 <body>
     <div class="header">
         <img src="../static/img/header.jpg">
+        <span>学生系统</span>
     </div>
     <img src="../static/img/StudentRight.gif">
     <ul class="list">
@@ -16,12 +16,13 @@
             <ul class="li_body">
                 <li id="xgxx">修改信息</li>
                 <li id="ckxx">查看信息</li>
+                <li><a href="/logout/" onclick="return confirm('是否退出？')">退出登录</a></li>
             </ul>
         </li>
         <li>
             <div class="li_name">题库</div>
             <ul class="li_body">
-                <li id="tklb">题库列表</li>
+                <li id="tmlb">题目列表</li>
             </ul>
         </li>
         <li>
@@ -38,6 +39,6 @@
         </li>
     </ul>
     <iframe src="/student/examList/" class="content"></iframe>
-    <script src="../static/js/manage.js"></script>
+    <script src="../static/js/student.js"></script>
 </body>
 </html>

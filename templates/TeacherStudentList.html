@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/lib/bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container page-body">
+        <div role="main">
+            <div class="input-group" style="margin-bottom: 10px">
+                <select id="class" class="form-select-sm" name="class">
+                    <option>请选择班级</option>
+                    {% for field in class %}
+                        <option value="{{ field.id }}">{{ field.classname }}</option>
+                    {% endfor %}
+                </select>
+                <div class="input-group-append">
+                    <button id="search" class="btn btn-outline-secondary">查找</button>
+                </div>
+            </div>
+        {% if queryset %}
+            <div class="body-main">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for itme in queryset %}
+                    <tr>
+
+                        <td>{{ itme.stunum }}</td>
+                        <td>{{ itme.name }}</td>
+                        <td>
+                            <a onclick="return confirm('确认删除？')" href="/teacher/{{ itme.id }}/deletesStudent"><button>删除</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="body-footer">
+                <div class="col-md-4 col-md-offset-3">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                             <li class="page-item">
+                                <a class="page-link" href="?class={{ selected_class }}&page={{ previous_page }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            {% for num in page_num %}
+                            <li class="page-item">
+                                <a class="page-link" href="?class={{ selected_class }}&page={{ num }}">{{ num }}</a>
+                            </li>
+                            {% endfor %}
+                            <li class="page-item">
+                                <a class="page-link" href="?class={{ selected_class }}&page={{ next_page }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+    <script src="/static/lib/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <script>
+         $("#search").click(function(){
+            var selected_class = $("#class").val()
+            location.href = '/teacher/studentList/?class=' + selected_class + '&page='
+         })
+    </script>
+</body>
+</html>

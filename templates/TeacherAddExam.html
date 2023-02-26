@@ -5,30 +5,16 @@
     <title>Title</title>
 </head>
 <body>
+    <span>添加考试</span>
     <form action="" method="post">
         {% csrf_token %}
-        <div hidden>{% csrf_token %}</div>
-        <span>添加考试</span>
-        <div>
-            <label>标题</label>
-            <input type="text" class="form-control" id="title" placeholder="标题" name="title">
-        </div>
-        <div>
-            <label>开始时间</label>
-            <input type="datetime-local" class="form-control" id="stDate" name="stDate">
-        </div>
-        <div>
-            <label>结束时间</label>
-            <input type="datetime-local" class="form-control" id="enDate" name="enDate">
-        </div>
-        <div>
-            <label>题目编号</label>
-            <input type="text" class="form-control" placeholder="P10001,P10002,······" id="probNum" name="probNum">
-        </div>
-        <div>
-            <label>班级编号</label>
-            <input type="text" class="form-control" placeholder="C101,C102,······" id="classNum" name="classNum">
-        </div>
+        {% for field in form %}
+            <div>
+                <label>{{ field.label }}:</label>
+                {{ field }}
+                {{ field.errors.0 }}
+            </div>
+        {% endfor %}
         <input id="submit" type="submit" value="保存">
     </form>
         <a href="/teacher/examList/"><button>返回</button></a>

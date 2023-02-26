@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for item in result %}
+            <div>
+                第{{ forloop.counter }}题 {{ item.get_type_display }}
+                {{ item.content | linebreaks}}
+                <textarea name="{{ forloop.counter }}"></textarea>
+            </div>
+        {% endfor %}
+        <input type="submit" value="提交试卷">
+    </form>
+</body>
+</html>

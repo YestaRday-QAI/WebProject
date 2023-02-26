@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>        ?class={{ selected_class }}&page=
+    <div class="container page-body">
+        <div role="main">
+        {% if queryset %}
+            <div class="body-main">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for itme in queryset %}
+                    <tr>
+
+                        <td>{{ itme.stunum }}</td>
+                        <td>{{ itme.name }}</td>
+                        <td>
+                            <a onclick="return confirm('确认删除？')" href="/teacher/{{ itme.id }}/deletesStudent"><button>删除</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="body-footer">
+                <div class="col-md-4 col-md-offset-3">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="/teacher/studentList/?page={{ previous_page }}" aria-label="Previous">
+                                    <button aria-hidden="true" type="submit" style="border: none; background-color: white; padding: 0">&laquo;</button>
+                                </a>
+                            </li>
+                            {% for num in page_num %}
+                            <li class="page-item">
+                                <a class="page-link" href="/teacher/studentList/?page={{ num }}">
+                                    <button type="submit" style="border: none; background-color: white; padding: 0">{{ num }}</button>
+                                </a>
+                            </li>
+                            {% endfor %}
+                            <li class="page-item">
+                                <a class="page-link" href="/teacher/studentList/?page={{ next_page }}" aria-label="Next">
+                                    <button aria-hidden="true" type="submit" style="border: none; background-color: white; padding: 0">&raquo;</button>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+    <script>
+        document.querySelector('#tmlb').addEventListener('click', function () {
+            document.querySelector('.content').src="/teacher/ProblemList/";
+        })
+    </script>
+</body>
+</html>

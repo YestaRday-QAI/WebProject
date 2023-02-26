@@ -5,18 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-    <span>添加考试</span>
+    <span>添加班级</span>
     <form action="" method="post">
         {% csrf_token %}
         {% for field in form %}
             <div>
                 <label>{{ field.label }}:</label>
-                {{ field }}
-                <div style="color: red">{{ field.errors.0 }}</div>
+                {% if field.name == 'teacher' %}
+                    <input readonly type="number" name="teacher" required="" id="id_teacher" value="{{ stuffnum }}">
+                {% else %}
+                    {{ field }}
+                {% endif %}
+                {{ field.errors.0 }}
             </div>
         {% endfor %}
         <input id="submit" type="submit" value="保存">
     </form>
-        <a href="/teacher/examList/"><button>返回</button></a>
+        <a href="/teacher/classList/"><button>返回</button></a>
 </body>
 </html>
